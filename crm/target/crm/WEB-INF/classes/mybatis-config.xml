@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--settings:控制mybatis的全局行为-->
+    <settings>
+        <!--设置mybatis的输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--设置别名，这种写法就是扫描该包下的所有javabean并自动为其创建不带包名的别名，
+        这个别名就是JavaBean的类名（首字母小写）。
+        例如：resultType="com.zhang.crm.model.Student" 就可以简写为 resultType="student"
+    -->
+    <typeAliases>
+        <package name="com.bjpowernode.crm.model"/>
+    </typeAliases>
+    <mappers>
+        <!--<mapper resource="com/zhang/dao/StudentDao.xml" />-->
+        <!--该包下所有的mapper.xml都会被找到  要求：dao接口名称和mapper映射文件名称相同,且在同一目录中-->
+        <package name="com.bjpowernode.crm.mapper"/>
+    </mappers>
+</configuration>
